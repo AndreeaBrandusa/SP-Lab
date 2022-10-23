@@ -1,6 +1,6 @@
 package org.sp;
 
-public class Table {
+public class Table implements Element {
     private String title;
 
     public Table(String title) {

@@ -10,6 +10,7 @@ public class SubChapter {
     private List<Paragraph> paragraphs = new ArrayList<>();
     private List<Image> images = new ArrayList<>();
     private List<Table> tables = new ArrayList<>();
+    private List<Element> elements = new ArrayList<>();
 
     public SubChapter(String name) {
         this.subChapterName = name;
@@ -26,6 +27,15 @@ public class SubChapter {
 
         for(Table t: tables)
             t.print();
+    }
+
+    public void createElement(String name, String type){
+        if(type == "paragraphs")
+            createNewParagraph(name);
+        if(type == "images")
+            createNewImage(name);
+        if(type == "tables")
+            createNewTable(name);
     }
 
     public void createNewParagraph(String name){
