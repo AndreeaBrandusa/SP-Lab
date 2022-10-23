@@ -1,29 +1,28 @@
 package org.sp;
 
-public class Book {
-    private String title;
-    private Author author;
-    private TableOfContents tableOfContents = new TableOfContents();
+import java.util.ArrayList;
+import java.util.List;
 
-    public Book(String title) {
-        this.title = title;
+public class Book extends Section {
+    private String book;
+    private Author author;
+
+    public Book(String book) {
+        super("");
+        this.book = book;
     }
 
     public void print(){
-        System.out.println(title);
+        System.out.println("Book: " + book + "\n");
         author.print();
-        tableOfContents.print();
+        super.print();
     }
 
     public void addAuthor(Author author) {
         this.author = author;
     }
 
-    public int createChapter(String name) {
-        return tableOfContents.addChapter(name);
-    }
-
-    public Chapter getChapter(int chIndex) {
-        return tableOfContents.getChapter(chIndex);
+    public void addContent(Element element) {
+        add(element);
     }
 }

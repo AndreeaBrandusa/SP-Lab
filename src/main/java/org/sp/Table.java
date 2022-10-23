@@ -1,7 +1,11 @@
 package org.sp;
 
-public class Table {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Table implements Element {
     private String title;
+    private List<Element> elemente = new ArrayList<>();
 
     public Table(String title) {
         this.title = title;
@@ -9,5 +13,17 @@ public class Table {
 
     public void print(){
         System.out.println("\t\t" + title);
+    }
+
+    public void add(Element element){
+        elemente.add(element);
+    }
+
+    public void remove(Element element){
+        elemente.remove(element);
+    }
+
+    public Element get(int elIndex){
+        return elemente.get(elIndex - 1);
     }
 }
