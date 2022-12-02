@@ -1,28 +1,56 @@
 package org.sp;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-public class Image implements Element {
-    private String url;
-    private List<Element> elemente = new ArrayList<>();
+public class Image extends AbstractElement implements Picture {
+    private final String url;
+    private final ImageContent content;
+    private final List<Element> elemente = new ArrayList<>();
 
-    public Image(String url) {
-        this.url = url;
+    Image(String name) {
+        this.url = name;
+        this.content = new ImageContent();
+
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
+    @Override
+    public String url() {
+        return url;
+    }
+
+    @Override
+    public Dimension dim() {
+        return null;
+    }
+
+    public ImageContent content(){
+        return content;
+    }
+
+    @Override
     public void print(){
         System.out.println("Image with name: " + url);
     }
 
+    @Override
     public void add(Element element){
         elemente.add(element);
     }
 
+    @Override
     public void remove(Element element){
         elemente.remove(element);
     }
 
+    @Override
     public Element get(int elIndex){
         return elemente.get(elIndex - 1);
     }

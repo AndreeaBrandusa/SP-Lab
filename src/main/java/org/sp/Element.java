@@ -1,8 +1,9 @@
 package org.sp;
 
 public interface Element {
-    public void print();
-    public void add(Element element);
-    public void remove(Element element);
-    public Element get(int elIndex);
+    void print();
+    void add(Element element);
+    void remove(Element element);
+    Element get(int elIndex);
+    Element getParent();
 }
