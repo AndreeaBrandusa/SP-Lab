@@ -3,22 +3,27 @@ package org.sp;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-public class TableOfContents implements Element {
+public class TableOfContents extends AbstractElement {
     private Book book;
-    private List<Element> elemente = new ArrayList<>();
+    private final List<Element> elemente = new ArrayList<>();
 
+    @Override
     public void print(){
         System.out.println("Table Of Contents :)");
     }
 
-    public int addChapter(String name) {
-        Chapter ch = new Chapter(name);
-        chapters.add(ch);
-        return chapters.size();
+    @Override
+    public void add(Element element){
+        elemente.add(element);
     }
 
-    public Chapter getChapter(int chIndex) {
-        return chapters.get(chIndex - 1);
+    @Override
+    public void remove(Element element){
+        elemente.remove(element);
+    }
+
+    @Override
+    public Element get(int elIndex){
+        return elemente.get(elIndex - 1);
     }
 }
