@@ -1,8 +1,11 @@
 package org.sp;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
+=======
+>>>>>>> main
 public class Table implements Element {
     private String title;
     private List<Element> elemente = new ArrayList<>();

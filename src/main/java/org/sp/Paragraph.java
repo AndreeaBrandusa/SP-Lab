@@ -1,8 +1,11 @@
 package org.sp;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
+=======
+>>>>>>> main
 public class Paragraph implements Element {
     private String text;
     private List<Element> elemente = new ArrayList<>();

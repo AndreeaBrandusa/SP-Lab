@@ -3,6 +3,7 @@ package org.sp;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 public class TableOfContents implements Element {
     private Book book;
     private List<Element> elemente = new ArrayList<>();
@@ -11,15 +12,13 @@ public class TableOfContents implements Element {
         System.out.println("Table Of Contents :)");
     }
 
-    public void add(Element element){
-        elemente.add(element);
+    public int addChapter(String name) {
+        Chapter ch = new Chapter(name);
+        chapters.add(ch);
+        return chapters.size();
     }
 
-    public void remove(Element element){
-        elemente.remove(element);
-    }
-
-    public Element get(int elIndex){
-        return elemente.get(elIndex - 1);
+    public Chapter getChapter(int chIndex) {
+        return chapters.get(chIndex - 1);
     }
 }
