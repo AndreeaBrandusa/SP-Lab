@@ -1,16 +1,8 @@
 package org.sp;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-import java.util.List;
-
 public class Table extends AbstractElement {
     private final String title;
     private final List<Element> elemente = new ArrayList<>();
-=======
-public class Table implements Element {
-    private String title;
->>>>>>> main
 
     public Table(String title) {
         this.title = title;
