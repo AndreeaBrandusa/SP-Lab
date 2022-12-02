@@ -1,9 +1,14 @@
 package org.sp;
 
+<<<<<<< HEAD
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+=======
+public class Image implements Element {
+    private String imageName;
+>>>>>>> main
 
 public class Image extends AbstractElement implements Picture {
     private final String url;
