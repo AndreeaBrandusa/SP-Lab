@@ -1,4 +1,4 @@
-package org.sp;
+package org.sp.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,5 +27,10 @@ public class Book extends Section {
 
     public void addContent(Element element) {
         add(element);
+    }
+
+    @Override
+    public void accept(Visitor v) {
+
     }
 }

@@ -1,28 +1,15 @@
-package org.sp;
+package org.sp.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Paragraph extends AbstractElement {
-    private final String text;
+public class TableOfContents extends AbstractElement implements Visitee {
+    private Book book;
     private final List<Element> elemente = new ArrayList<>();
-    private AlignStrategy alignStrategy = new AlignLeft();
-
-    public Paragraph(String text) {
-        this.text = text;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setAlignStrategy(AlignStrategy a) {
-        this.alignStrategy = a;
-    }
 
     @Override
     public void print(){
-        alignStrategy.render(this, new Context());
+        System.out.println("Table Of Contents :)");
     }
 
     @Override
@@ -38,5 +25,10 @@ public class Paragraph extends AbstractElement {
     @Override
     public Element get(int elIndex){
         return elemente.get(elIndex - 1);
+    }
+
+    @Override
+    public void accept(Visitor v) {
+
     }
 }

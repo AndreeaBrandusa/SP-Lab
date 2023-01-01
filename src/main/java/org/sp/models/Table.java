@@ -1,9 +1,9 @@
-package org.sp;
+package org.sp.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Table extends AbstractElement {
+public class Table extends AbstractElement implements Visitee {
     private final String title;
     private final List<Element> elemente = new ArrayList<>();
 
@@ -29,5 +29,10 @@ public class Table extends AbstractElement {
     @Override
     public Element get(int elIndex){
         return elemente.get(elIndex - 1);
+    }
+
+    @Override
+    public void accept(Visitor v) {
+
     }
 }

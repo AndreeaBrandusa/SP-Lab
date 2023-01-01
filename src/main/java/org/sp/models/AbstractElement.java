@@ -1,4 +1,4 @@
-package org.sp;
+package org.sp.models;
 
 public abstract class AbstractElement implements Element{
     Element parent;

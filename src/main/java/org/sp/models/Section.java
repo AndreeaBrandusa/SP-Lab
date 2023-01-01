@@ -1,9 +1,9 @@
-package org.sp;
+package org.sp.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Section extends AbstractElement {
+public class Section extends AbstractElement implements Visitee {
     private final String title;
     private final List<Element> elemente = new ArrayList<>();
 
@@ -38,5 +38,10 @@ public class Section extends AbstractElement {
     @Override
     public Element get(int elIndex){
         return elemente.get(elIndex);
+    }
+
+    @Override
+    public void accept(Visitor v) {
+
     }
 }

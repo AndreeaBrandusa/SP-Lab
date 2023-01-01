@@ -1,11 +1,11 @@
-package org.sp;
+package org.sp.models;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Image extends AbstractElement implements Picture {
+public class Image extends AbstractElement implements Picture, Visitee {
     private final String url;
     private final ImageContent content;
     private final List<Element> elemente = new ArrayList<>();
@@ -13,12 +13,6 @@ public class Image extends AbstractElement implements Picture {
     Image(String name) {
         this.url = name;
         this.content = new ImageContent();
-
-        try {
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -53,5 +47,10 @@ public class Image extends AbstractElement implements Picture {
     @Override
     public Element get(int elIndex){
         return elemente.get(elIndex - 1);
+    }
+
+    @Override
+    public void accept(Visitor v) {
+
     }
 }

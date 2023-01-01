@@ -1,6 +1,12 @@
 package org.sp;
 
-public class Main {
+import org.sp.models.Paragraph;
+import org.sp.models.Section;
+import org.sp.services.AlignCenter;
+import org.sp.services.AlignLeft;
+import org.sp.services.AlignRight;
+
+public class Lab5 {
     public static void main(String[] args) {
         Section cap1 = new Section("Capitolul 1");
         Paragraph p1 = new Paragraph("Paragraph 1");

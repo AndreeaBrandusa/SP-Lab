@@ -1,4 +1,8 @@
-package org.sp;
+package org.sp.services;
+
+
+import org.sp.models.Context;
+import org.sp.models.Paragraph;
 
 public class AlignCenter implements AlignStrategy {
 
