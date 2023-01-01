@@ -24,11 +24,7 @@ public class ImageProxy extends AbstractElement implements Picture {
 
     @Override
     public void print() {
-        if(realImg == null) {
-            loadImage();
-        }
-
-        realImg.print();
+        loadImage().print();
     }
 
     @Override
@@ -48,28 +44,16 @@ public class ImageProxy extends AbstractElement implements Picture {
 
     @Override
     public String url() {
-        if(realImg == null) {
-            loadImage();
-        }
-
-        return realImg.url();
+        return loadImage().url();
     }
 
     @Override
     public Dimension dim() {
-        if(realImg == null) {
-            loadImage();
-        }
-
         return realImg.dim();
     }
 
     @Override
     public PictureContent content() {
-        if(realImg == null) {
-            loadImage();
-        }
-
-        return realImg.content();
+        return loadImage().content();
     }
 }
