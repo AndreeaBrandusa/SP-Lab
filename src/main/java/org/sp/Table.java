@@ -1,5 +1,8 @@
 package org.sp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Table extends AbstractElement {
     private final String title;
     private final List<Element> elemente = new ArrayList<>();
