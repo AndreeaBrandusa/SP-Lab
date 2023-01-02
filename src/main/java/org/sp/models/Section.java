@@ -4,11 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Section extends AbstractElement implements Visitee {
-    private final String title;
+    protected final String title;
     private final List<Element> elemente = new ArrayList<>();
 
     public Section(String title) {
         this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public List<Element> getElements() {
+        return elemente;
     }
 
     @Override
@@ -42,6 +50,6 @@ public class Section extends AbstractElement implements Visitee {
 
     @Override
     public void accept(Visitor v) {
-
+        v.visitSection(this);
     }
 }

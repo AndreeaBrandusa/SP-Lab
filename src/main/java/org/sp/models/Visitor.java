@@ -1,6 +1,6 @@
 package org.sp.models;
 
-public interface Visitor{
+public interface Visitor {
     void visitBook(Book b);
     void visitSection(Section s);
     void visitTableOfContents(TableOfContents toc);

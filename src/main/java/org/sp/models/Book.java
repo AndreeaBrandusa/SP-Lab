@@ -1,22 +1,17 @@
 package org.sp.models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Book extends Section {
-    private final String book;
     private Author author;
 
-    public Book(String book) {
-        super(book);
-        this.book = book;
+    public Book(String bookTitle) {
+        super(bookTitle);
     }
 
     public void print(){
-        System.out.println(book);
-        System.out.println("Book: " + book + "\n");
-        System.out.println(book);
+        System.out.println(title);
+        System.out.println("Book: " + title + "\n");
+        System.out.println(title);
         author.print();
         super.print();
     }
@@ -31,6 +26,6 @@ public class Book extends Section {
 
     @Override
     public void accept(Visitor v) {
-
+        v.visitBook(this);
     }
 }

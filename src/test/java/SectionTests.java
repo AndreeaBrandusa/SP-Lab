@@ -1,9 +1,5 @@
 import org.junit.jupiter.api.Test;
-import org.sp.Element;
-import org.sp.Image;
-import org.sp.Paragraph;
-import org.sp.Section;
-
+import org.sp.models.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SectionTests {

@@ -1,16 +1,12 @@
 package org.sp.models;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.awt.Dimension;
 
 public class Image extends AbstractElement implements Picture, Visitee {
     private final String url;
     private final ImageContent content;
-    private final List<Element> elemente = new ArrayList<>();
 
-    Image(String name) {
+    public Image(String name) {
         this.url = name;
         this.content = new ImageContent();
     }
@@ -22,7 +18,7 @@ public class Image extends AbstractElement implements Picture, Visitee {
 
     @Override
     public Dimension dim() {
-        return null;
+        return new Dimension(23, 23);
     }
 
     public ImageContent content(){
@@ -35,22 +31,22 @@ public class Image extends AbstractElement implements Picture, Visitee {
     }
 
     @Override
-    public void add(Element element){
-        elemente.add(element);
+    public void add(Element element) {
+
     }
 
     @Override
-    public void remove(Element element){
-        elemente.remove(element);
+    public void remove(Element element) {
+
     }
 
     @Override
     public Element get(int elIndex){
-        return elemente.get(elIndex - 1);
+        return null;
     }
 
     @Override
     public void accept(Visitor v) {
-
+        v.visitImage(this);
     }
 }

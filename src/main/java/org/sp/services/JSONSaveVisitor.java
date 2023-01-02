@@ -1,85 +1,84 @@
 package org.sp.services;
 
-import org.example.models.*;
+import org.sp.models.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class JSONSaveVisitor implements Visitor {
     JSONArray currentNode = new JSONArray();
-
     final JSONArray root = currentNode;
 
     @Override
-    public void visitBook(Book x) {
+    public void visitBook(Book b) {
         JSONObject o = new JSONObject();
         o.put("type", Book.class.toString());
-        o.put("title", x.getTitle());
+        o.put("title", b.getTitle());
 
         currentNode.put(o);
     }
 
     @Override
-    public void visitSection(Section x) {
+    public void visitSection(Section s) {
         JSONObject o = new JSONObject();
         currentNode.put(o);
 
         o.put("type", Section.class.toString());
-        o.put("title", x.getTitle());
+        o.put("title", s.getTitle());
 
         JSONArray children = new JSONArray();
-        o.put("chidren", children);
+        o.put("children", children);
 
-        for(Element e : x.getChildren()) {
+        for(Element e : s.getElements()) {
             this.currentNode = children;
             ((Visitee)e).accept(this);
         }
     }
 
     @Override
-    public void visitTableOfContents(TableOfContents x) {
+    public void visitTableOfContents(TableOfContents toc) {
         JSONObject o = new JSONObject();
         o.put("type", TableOfContents.class.toString());
-        o.put("content", x.getContent());
+        o.put("content", toc.getContent());
 
         currentNode.put(o);
     }
 
     @Override
-    public void visitParagraph(Paragraph x) {
+    public void visitParagraph(Paragraph p) {
         JSONObject o = new JSONObject();
         o.put("type", Paragraph.class.toString());
-        o.put("text", x.getText());
+        o.put("text", p.getText());
 
         currentNode.put(o);
     }
 
     @Override
-    public void visitImageProxy(ImageProxy x) {
+    public void visitImageProxy(ImageProxy ip) {
         JSONObject o = new JSONObject();
         o.put("type", ImageProxy.class.toString());
-        o.put("url", x.url());
-        o.put("dimensions", x.dim().toString());
-        o.put("content", x.content().toString());
+        o.put("url", ip.url());
+        o.put("dimensions", ip.dim().toString());
+        o.put("content", ip.content().toString());
 
         currentNode.put(o);
     }
 
     @Override
-    public void visitImage(Image x) {
+    public void visitImage(Image i) {
         JSONObject o = new JSONObject();
         o.put("type", Image.class.toString());
-        o.put("url", x.getUrl());
-        o.put("extension", x.getExtension());
-        o.put("content", x.content());
+        o.put("url", i.url());
+        o.put("content", i.content().toString());
 
         currentNode.put(o);
     }
 
     @Override
-    public void visitTable(Table x) {
+    public void visitTable(Table t) {
         JSONObject o = new JSONObject();
         o.put("type", Table.class.toString());
-        o.put("content", x.getContent());
+        o.put("title", t.getTitle());
+        o.put("content", t.getContent());
 
         currentNode.put(o);
     }

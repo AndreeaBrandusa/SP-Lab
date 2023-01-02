@@ -1,14 +1,24 @@
 package org.sp.models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Table extends AbstractElement implements Visitee {
     private final String title;
-    private final List<Element> elemente = new ArrayList<>();
+    private String content;
 
     public Table(String title) {
         this.title = title;
+        this.content = "";
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @Override
@@ -17,22 +27,22 @@ public class Table extends AbstractElement implements Visitee {
     }
 
     @Override
-    public void add(Element element){
-        elemente.add(element);
+    public void add(Element element) {
+
     }
 
     @Override
-    public void remove(Element element){
-        elemente.remove(element);
+    public void remove(Element element) {
+
     }
 
     @Override
     public Element get(int elIndex){
-        return elemente.get(elIndex - 1);
+        return null;
     }
 
     @Override
     public void accept(Visitor v) {
-
+        v.visitTable(this);
     }
 }
