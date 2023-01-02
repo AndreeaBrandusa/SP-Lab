@@ -1,14 +1,11 @@
-package org.sp;
+package org.sp.models;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.Dimension;
 
-public class ImageProxy extends AbstractElement implements Picture {
+public class ImageProxy extends AbstractElement implements Picture, Visitee {
     private final String url;
     private Dimension dim;
     private Image realImg;
-    private final List<Element> elemente = new ArrayList<>();
 
     public ImageProxy(String url) {
         this.url = url;
@@ -28,18 +25,18 @@ public class ImageProxy extends AbstractElement implements Picture {
     }
 
     @Override
-    public void add(Element element){
-        elemente.add(element);
+    public void add(Element element) {
+
     }
 
     @Override
-    public void remove(Element element){
-        elemente.remove(element);
+    public void remove(Element element) {
+
     }
 
     @Override
     public Element get(int elIndex){
-        return elemente.get(elIndex - 1);
+        return null;
     }
 
     @Override
@@ -55,5 +52,10 @@ public class ImageProxy extends AbstractElement implements Picture {
     @Override
     public PictureContent content() {
         return loadImage().content();
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitImageProxy(this);
     }
 }

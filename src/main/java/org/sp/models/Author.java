@@ -1,4 +1,4 @@
-package org.sp;
+package org.sp.models;
 
 public class Author {
     private final String name;

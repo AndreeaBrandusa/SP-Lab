@@ -1,11 +1,10 @@
-package org.sp;
+package org.sp.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.sp.services.AlignLeft;
+import org.sp.services.AlignStrategy;
 
-public class Paragraph extends AbstractElement {
+public class Paragraph extends AbstractElement implements Visitee {
     private final String text;
-    private final List<Element> elemente = new ArrayList<>();
     private AlignStrategy alignStrategy = new AlignLeft();
 
     public Paragraph(String text) {
@@ -26,17 +25,22 @@ public class Paragraph extends AbstractElement {
     }
 
     @Override
-    public void add(Element element){
-        elemente.add(element);
+    public void add(Element element) {
+
     }
 
     @Override
-    public void remove(Element element){
-        elemente.remove(element);
+    public void remove(Element element) {
+
     }
 
     @Override
     public Element get(int elIndex){
-        return elemente.get(elIndex - 1);
+        return null;
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitParagraph(this);
     }
 }
