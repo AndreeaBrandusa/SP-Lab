@@ -6,14 +6,23 @@ import java.util.List;
 public class Paragraph extends AbstractElement {
     private final String text;
     private final List<Element> elemente = new ArrayList<>();
+    private AlignStrategy alignStrategy = new AlignLeft();
 
     public Paragraph(String text) {
         this.text = text;
     }
 
+    public String getText() {
+        return text;
+    }
+
+    public void setAlignStrategy(AlignStrategy a) {
+        this.alignStrategy = a;
+    }
+
     @Override
     public void print(){
-        System.out.println("Paragraph: " + text);
+        alignStrategy.render(this, new Context());
     }
 
     @Override
