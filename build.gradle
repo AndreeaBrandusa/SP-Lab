@@ -1,15 +1,32 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
 plugins {
+    id 'org.springframework.boot' version '2.3.3.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
 }
 
 group 'org.sp'
 version '1.0-SNAPSHOT'
 
-repositories {
-    mavenCentral()
-}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testCompileOnly 'org.projectlombok:lombok:1.18.22'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation group: 'org.json', name: 'json', version: '20220924'
