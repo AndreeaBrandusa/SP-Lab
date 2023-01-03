@@ -1,9 +1,22 @@
 package org.sp.models;
 
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.awt.Dimension;
 
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@NoArgsConstructor(force = true)
 public class Image extends AbstractElement implements Picture, Visitee {
+    @Id
+    @GeneratedValue
+    private int id;
+
+    private Dimension dimensions = new Dimension(23, 23);
     private final String url;
+
+    @OneToOne
     private final ImageContent content;
 
     public Image(String name) {
@@ -18,11 +31,24 @@ public class Image extends AbstractElement implements Picture, Visitee {
 
     @Override
     public Dimension dim() {
-        return new Dimension(23, 23);
+        return dimensions;
     }
 
-    public ImageContent content(){
+    @Override
+    public PictureContent content() {
         return content;
+    }
+
+    public String getUrl() {
+        return url();
+    }
+
+    public Dimension getDimensions() {
+        return dim();
+    }
+
+    public ImageContent getContent(){
+        return (ImageContent) content();
     }
 
     @Override
